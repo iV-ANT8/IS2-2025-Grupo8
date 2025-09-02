@@ -17,7 +17,5 @@ class ProductoSchema(BaseModel):
     stock_minimo: int = Field(default=0, ge=0)
 
 class ProductoRead(ProductoSchema):
-    id: int
-
     class Config:
-        orm_mode = True
+        from_attributes = True # Pydantic usa from_attributes con la nueva version, no orm_mode
