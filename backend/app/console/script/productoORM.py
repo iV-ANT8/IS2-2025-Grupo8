@@ -1,9 +1,13 @@
+from app.db.engine import engine
+from app.db.base import Base
 from app.db.models import producto
 from app.db.session import SessionLocal
 
-nuevo_producto = producto.ProductoObjRM(
+Base.metadata.create_all(bind=engine, tables=[producto.ProductoORM.__table__])
+
+nuevo_producto = producto.ProductoORM(
     nombre="Producto Ejemplo",
-    sku="0001",
+    sku="0010",
     descripcion="Test",
     stock=10,
     stock_minimo=2
