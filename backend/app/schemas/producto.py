@@ -16,7 +16,7 @@ class ProductoSchema(BaseModel):
     stock: int = Field(default=0, ge=0)
     stock_minimo: int = Field(default=0, ge=0)
 
-class ProductoRead(ProductoCreate):
+class ProductoRead(ProductoSchema):
     id: int
 
     class Config:
